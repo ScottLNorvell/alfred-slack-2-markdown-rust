@@ -27,7 +27,8 @@ cp target/release/alfred-slack-2-markdown-rust .
 
 ## Usage
 
-In Alfred, type `smd`, <kbd>Space</kbd>, and then start searching emojis.
+In Alfred, type `smd`, <kbd>Space</kbd>, and then start searching emojis to copy as markdown.
+In Alfred, type `smc`, <kbd>Space</kbd>, and then start searching emojis to copy (and paste) the actual image file (preserves GIF animation).
 
 
 ## Troubleshooting

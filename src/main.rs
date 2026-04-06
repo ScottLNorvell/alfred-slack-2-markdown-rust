@@ -1,5 +1,6 @@
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
+use clipboard_rs::{Clipboard, ClipboardContext};
 use dotenvy::dotenv;
 use futures_util::StreamExt;
 use fuzzy_matcher::skim::SkimMatcherV2;
@@ -8,7 +9,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::env;
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 #[derive(Parser)]
 #[command(name = "alfred-slack-2-markdown")]
@@ -21,11 +22,20 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     /// Search for emojis
-    Search { query: String },
+    Search {
+        query: String,
+        #[arg(long)]
+        image: bool,
+    },
     /// Update slack emojis
     Download,
     /// Configure slack token
     Config { token: String },
+    /// Copy image to clipboard
+    Copy {
+        #[arg(long)]
+        path: String,
+    },
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -63,8 +73,8 @@ async fn main() -> Result<()> {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Search { query } => {
-            search(query).await?;
+        Commands::Search { query, image } => {
+            search(query, *image).await?;
         }
         Commands::Download => {
             download_emojis().await?;
@@ -72,12 +82,15 @@ async fn main() -> Result<()> {
         Commands::Config { token } => {
             config(token).await?;
         }
+        Commands::Copy { path } => {
+            copy_to_clipboard(path)?;
+        }
     }
 
     Ok(())
 }
 
-async fn search(query: &str) -> Result<()> {
+async fn search(query: &str, image_mode: bool) -> Result<()> {
     let emojis = read_emoji_cache()?;
     let matcher = SkimMatcherV2::default();
 
@@ -95,6 +108,8 @@ async fn search(query: &str) -> Result<()> {
 
     scored_items.sort_by(|a, b| b.0.cmp(&a.0));
 
+    let current_dir = env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
+
     let items = scored_items
         .into_iter()
         .take(20)
@@ -102,10 +117,16 @@ async fn search(query: &str) -> Result<()> {
             let resolved_url = resolve_alias(&url, &emojis).unwrap_or(url.clone());
             let icon_path = get_icon_path(&resolved_url);
             
+            let arg = if image_mode {
+                current_dir.join(&icon_path).to_string_lossy().to_string()
+            } else {
+                format!("![{}]({})", name, resolved_url)
+            };
+
             AlfredItem {
                 title: format!(":{}:", name),
                 subtitle: if resolved_url.ends_with(".gif") { "(animated)".to_string() } else { "".to_string() },
-                arg: format!("![{}]({})", name, resolved_url),
+                arg,
                 uid: resolved_url.clone(),
                 icon: AlfredIcon { path: icon_path },
             }
@@ -213,5 +234,22 @@ async fn download_file(client: &reqwest::Client, url: &str, path: &str) -> Resul
 async fn config(token: &str) -> Result<()> {
     fs::write(".env", format!("SLACK_OAUTH_TOKEN={}", token))?;
     println!("CONFIGURED!");
+    Ok(())
+}
+
+fn copy_to_clipboard(path: &str) -> Result<()> {
+    let ctx = ClipboardContext::new().map_err(|e| anyhow::anyhow!(e))?;
+    let data = fs::read(path).context(format!("Failed to read file at {}", path))?;
+
+    let uti = if path.ends_with(".gif") {
+        "com.compuserve.gif"
+    } else if path.ends_with(".png") {
+        "public.png"
+    } else {
+        "public.jpeg"
+    };
+
+    ctx.set_buffer(uti, data).map_err(|e| anyhow::anyhow!(e))?;
+    println!("Copied {} to clipboard as {}", path, uti);
     Ok(())
 }

@@ -6,6 +6,32 @@
 	<string>com.scottlnorvell.slack-2-markdown</string>
 	<key>connections</key>
 	<dict>
+		<key>0E977B67-B5BC-4BA8-BB4C-B1DEC60E00F0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0606A7D0-CB2A-43E5-93DB-009BD46B118E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>308EDED9-69AD-48D2-9FB3-7A9146E76491</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0E977B67-B5BC-4BA8-BB4C-B1DEC60E00F0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>3194CFE9-FD86-41CC-B409-E7C83B4CB237</key>
 		<array>
 			<dict>
@@ -89,6 +115,8 @@
 				<true/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -205,10 +233,14 @@
 				<integer>0</integer>
 				<key>font</key>
 				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>largetypetext</key>
 				<string>UPDATED!</string>
 				<key>textcolor</key>
 				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.largetype</string>
@@ -230,10 +262,14 @@
 				<integer>0</integer>
 				<key>font</key>
 				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>largetypetext</key>
 				<string>CONFIGURED!</string>
 				<key>textcolor</key>
 				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.largetype</string>
@@ -286,6 +322,99 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./alfred-slack-2-markdown-rust copy --path "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0E977B67-B5BC-4BA8-BB4C-B1DEC60E00F0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>count</key>
+				<integer>1</integer>
+				<key>keychar</key>
+				<string>v</string>
+				<key>keycode</key>
+				<integer>-1</integer>
+				<key>keymod</key>
+				<integer>1048576</integer>
+				<key>overridewithargument</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.dispatchkeycombo</string>
+			<key>uid</key>
+			<string>0606A7D0-CB2A-43E5-93DB-009BD46B118E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>smc</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./alfred-slack-2-markdown-rust search --image "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Slack emojis and copy image</string>
+				<key>title</key>
+				<string>Slackmoji 2 Clipboard (Image)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>308EDED9-69AD-48D2-9FB3-7A9146E76491</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string># alfred-slack-2-markdown [![Build Status](https://travis-ci.org/scottlnorvell/alfred-slack-2-markdown.svg?branch=master)](https://travis-ci.org/scottlnorvell/alfred-slack-2-markdown)
@@ -327,63 +456,86 @@ you will periodically need to download all of the _new_ emojis that your team ad
 ## License</string>
 	<key>uidata</key>
 	<dict>
+		<key>0606A7D0-CB2A-43E5-93DB-009BD46B118E</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>550</real>
+		</dict>
+		<key>0E977B67-B5BC-4BA8-BB4C-B1DEC60E00F0</key>
+		<dict>
+			<key>xpos</key>
+			<real>235</real>
+			<key>ypos</key>
+			<real>550</real>
+		</dict>
+		<key>308EDED9-69AD-48D2-9FB3-7A9146E76491</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>570</real>
+		</dict>
 		<key>3194CFE9-FD86-41CC-B409-E7C83B4CB237</key>
 		<dict>
 			<key>xpos</key>
-			<integer>55</integer>
+			<real>55</real>
 			<key>ypos</key>
-			<integer>425</integer>
+			<real>425</real>
 		</dict>
 		<key>36ED1615-E7AA-4B46-8117-AE1A51394681</key>
 		<dict>
 			<key>xpos</key>
-			<integer>275</integer>
+			<real>275</real>
 			<key>ypos</key>
-			<integer>220</integer>
+			<real>220</real>
 		</dict>
 		<key>533B11A2-31F1-45DB-A627-B85C15C2DC48</key>
 		<dict>
 			<key>xpos</key>
-			<integer>480</integer>
+			<real>480</real>
 			<key>ypos</key>
-			<integer>410</integer>
+			<real>410</real>
 		</dict>
 		<key>61CC21BA-9A82-4C43-B3B2-BD6B4ECE71EC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>260</integer>
+			<real>260</real>
 			<key>ypos</key>
-			<integer>20</integer>
+			<real>20</real>
 		</dict>
 		<key>773DAF93-AFA3-49DC-AF30-DCB562E5E425</key>
 		<dict>
 			<key>xpos</key>
-			<integer>75</integer>
+			<real>75</real>
 			<key>ypos</key>
-			<integer>25</integer>
+			<real>25</real>
 		</dict>
 		<key>8BC9D902-58D7-4CBD-BF92-9D68385B92EE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<real>460</real>
 			<key>ypos</key>
-			<integer>220</integer>
+			<real>220</real>
 		</dict>
 		<key>C93FA1F4-3E23-49AF-9CDC-E0E2910EFB3C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<real>250</real>
 			<key>ypos</key>
-			<integer>420</integer>
+			<real>420</real>
 		</dict>
 		<key>D0BFA19E-6BF8-49B0-AE9D-E88B11311F0F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>60</integer>
+			<real>60</real>
 			<key>ypos</key>
-			<integer>205</integer>
+			<real>205</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
