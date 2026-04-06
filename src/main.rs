@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::env;
 use std::fs;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 #[derive(Parser)]
 #[command(name = "alfred-slack-2-markdown")]
@@ -198,7 +198,7 @@ async fn download_emojis() -> Result<()> {
 }
 
 async fn download_file(client: &reqwest::Client, url: &str, path: &str) -> Result<()> {
-    let mut response = client.get(url).send().await?;
+    let response = client.get(url).send().await?;
     let mut file = fs::File::create(path)?;
     let mut stream = response.bytes_stream();
 
