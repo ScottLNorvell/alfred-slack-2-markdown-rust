@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.scottlnorvell.slack-2-markdown</string>
+	<key>connections</key>
+	<dict>
+		<key>3194CFE9-FD86-41CC-B409-E7C83B4CB237</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C93FA1F4-3E23-49AF-9CDC-E0E2910EFB3C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>36ED1615-E7AA-4B46-8117-AE1A51394681</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8BC9D902-58D7-4CBD-BF92-9D68385B92EE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>773DAF93-AFA3-49DC-AF30-DCB562E5E425</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>61CC21BA-9A82-4C43-B3B2-BD6B4ECE71EC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C93FA1F4-3E23-49AF-9CDC-E0E2910EFB3C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>533B11A2-31F1-45DB-A627-B85C15C2DC48</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D0BFA19E-6BF8-49B0-AE9D-E88B11311F0F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>36ED1615-E7AA-4B46-8117-AE1A51394681</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Scottlnorvell</string>
+	<key>description</key>
+	<string>Amazing Workflow to use your SLACK emojis in markdown</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>slack-2-markdown</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>61CC21BA-9A82-4C43-B3B2-BD6B4ECE71EC</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>smd</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./alfred-slack-2-markdown-rust search "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Slackmoji 2 Markdown</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>773DAF93-AFA3-49DC-AF30-DCB562E5E425</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>smdu</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Update Slack Emojis</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D0BFA19E-6BF8-49B0-AE9D-E88B11311F0F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./alfred-slack-2-markdown-rust download</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>36ED1615-E7AA-4B46-8117-AE1A51394681</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>largetypetext</key>
+				<string>UPDATED!</string>
+				<key>textcolor</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>8BC9D902-58D7-4CBD-BF92-9D68385B92EE</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>largetypetext</key>
+				<string>CONFIGURED!</string>
+				<key>textcolor</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>533B11A2-31F1-45DB-A627-B85C15C2DC48</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./alfred-slack-2-markdown-rust config "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C93FA1F4-3E23-49AF-9CDC-E0E2910EFB3C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>smdc</string>
+				<key>subtext</key>
+				<string>(enter your oauth token)</string>
+				<key>text</key>
+				<string>Configure Slack Emoji</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3194CFE9-FD86-41CC-B409-E7C83B4CB237</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># alfred-slack-2-markdown [![Build Status](https://travis-ci.org/scottlnorvell/alfred-slack-2-markdown.svg?branch=master)](https://travis-ci.org/scottlnorvell/alfred-slack-2-markdown)
+
+&gt; Slack emojis to markdown
+
+
+## Install
+
+```
+$ npm install --global alfred-slack-2-markdown
+```
+
+*Requires [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/).*
+
+
+## Configuration
+
+- Obtain an api token for your slack group with the `emoji:read` permissions. (see [here](https://api.slack.com/methods/emoji.list))
+- In alfred type `smdc`, &lt;kbd&gt;Space&lt;/kbd&gt;, and then paste in your slack api key.
+
+## Usage
+
+In Alfred, type `smd`, &lt;kbd&gt;Space&lt;/kbd&gt;, and then start searching emojis.
+
+
+## Troubleshooting
+### I can't see the pictures 😿
+For some reason, alfred can only display images from your computer.
+There is an initial setup to download all of the current emojis, and
+you will periodically need to download all of the _new_ emojis that your team adds. To do this:
+
+- In Alfred, type `smdu`, &lt;kbd&gt;Space&lt;/kbd&gt;
+- You'll see a huge screen saying `UPDATED`
+- That's it!
+
+
+
+## License</string>
+	<key>uidata</key>
+	<dict>
+		<key>3194CFE9-FD86-41CC-B409-E7C83B4CB237</key>
+		<dict>
+			<key>xpos</key>
+			<integer>55</integer>
+			<key>ypos</key>
+			<integer>425</integer>
+		</dict>
+		<key>36ED1615-E7AA-4B46-8117-AE1A51394681</key>
+		<dict>
+			<key>xpos</key>
+			<integer>275</integer>
+			<key>ypos</key>
+			<integer>220</integer>
+		</dict>
+		<key>533B11A2-31F1-45DB-A627-B85C15C2DC48</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>410</integer>
+		</dict>
+		<key>61CC21BA-9A82-4C43-B3B2-BD6B4ECE71EC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>260</integer>
+			<key>ypos</key>
+			<integer>20</integer>
+		</dict>
+		<key>773DAF93-AFA3-49DC-AF30-DCB562E5E425</key>
+		<dict>
+			<key>xpos</key>
+			<integer>75</integer>
+			<key>ypos</key>
+			<integer>25</integer>
+		</dict>
+		<key>8BC9D902-58D7-4CBD-BF92-9D68385B92EE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>460</integer>
+			<key>ypos</key>
+			<integer>220</integer>
+		</dict>
+		<key>C93FA1F4-3E23-49AF-9CDC-E0E2910EFB3C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>420</integer>
+		</dict>
+		<key>D0BFA19E-6BF8-49B0-AE9D-E88B11311F0F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>205</integer>
+		</dict>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>0.2.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

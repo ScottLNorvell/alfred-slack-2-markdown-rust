@@ -1,0 +1,6 @@
+target/
+.env
+.emojis.json
+.emojis/
+Cargo.lock
+alfred-slack-2-markdown-rust
